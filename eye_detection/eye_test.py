@@ -27,6 +27,6 @@ def getROI(img):
 
 	# cv.rectangle(img,(max_ex,max_ey),(max_ex+max_ew,max_ey+max_eh),(255,255,0),2)
 
-	# cv.imwrite('ROI.png',ROI)
+	cv.imwrite('ROI.png',ROI)
 	return ROI
 	pass
