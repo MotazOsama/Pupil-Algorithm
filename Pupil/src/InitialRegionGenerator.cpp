@@ -20,11 +20,13 @@ InitialRegionGenerator::InitialRegionGenerator(Mat gray_img) {
 		printf("--(!)Error loading haarcascade_mcs_righteye.xml \n");
 	}
 	this->eye = detect(this->gray_img);
-	showImage(this->gray_img);
+	this->ROI = gray_img(eye).clone();
+	imwrite("ROI.png", ROI);
+//	showImage(gray_img);
 }
 
 void InitialRegionGenerator::showImage(Mat frame) {
-	imshow("gray_image", frame);
+	imshow("gray_image.png", frame);
 	waitKey(0);
 	destroyAllWindows();
 }
@@ -47,17 +49,13 @@ Rect InitialRegionGenerator::detect(Mat frame) {
 			}
 
 		}
-		rectangle(gray_img, eyes[max], Scalar(255, 255, 0), 2, 1, 0);
+//		rectangle(gray_img, eyes[max], Scalar(255, 255, 0), 2, 1, 0);
 		return eyes[max];
 	}
 	Rect r;
 	return r;
 }
 
-Rect& InitialRegionGenerator::getEye() {
-	return eye;
+Mat& InitialRegionGenerator::getROI() {
+	return this->ROI;
 }
-
-InitialRegionGenerator::~InitialRegionGenerator() {
-}
-

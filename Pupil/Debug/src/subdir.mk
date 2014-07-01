@@ -4,16 +4,22 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../src/CannyEdgeDetector.cpp \
 ../src/InitialRegionGenerator.cpp \
-../src/Pupil.cpp 
+../src/Pupil.cpp \
+../src/PupilDetector.cpp 
 
 OBJS += \
+./src/CannyEdgeDetector.o \
 ./src/InitialRegionGenerator.o \
-./src/Pupil.o 
+./src/Pupil.o \
+./src/PupilDetector.o 
 
 CPP_DEPS += \
+./src/CannyEdgeDetector.d \
 ./src/InitialRegionGenerator.d \
-./src/Pupil.d 
+./src/Pupil.d \
+./src/PupilDetector.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

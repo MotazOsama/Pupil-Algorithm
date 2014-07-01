@@ -20,13 +20,13 @@ using namespace cv;
 class InitialRegionGenerator {
 public:
 	Mat gray_img;
+	Mat ROI;
 	CascadeClassifier eyes_cascade;
 	Rect eye;
 	InitialRegionGenerator(Mat gray_img);
 	Rect detect(Mat frame);
 	void showImage(Mat frame);
-	Rect& getEye();
-	virtual ~InitialRegionGenerator();
+	Mat& getROI();
 };
 
 #endif /* INTIALREGIONGENERATOR_H_ */
